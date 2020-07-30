@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Attach</title>
+        <link rel="stylesheet" href="styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Bebas+Neue&family=Do+Hyeon&family=Galada&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="jumbotron text-center" style="background-color: yellow;" id="head">
+            <h1>Thank you for registering with us!!</h1>
+            <h2>click here to view our instructions of the ideathon before you proceed</h2>
+        </div>
+        <div class="jumbotron" style="background-image:linear-gradient(to bottom,blue,grey);color: white;">
+          <h2>The allotted problem statement for your team name is as given below:</h2>
+          <h3><%=ques%></h3>
+        </div>
+        <div class="instructions">
+            <ul>
+                <li>
+                   Accurate drive link for the project must be shared.
+                </li>
+                <li>
+                    Creation of multiple accounts is prohibited.
+                </li>
+                <li>
+                    Every participant is allowed to submit only a single idea.
+                </li>
+                <li>
+                    Any file format is accepted, but PDF would be appreciable.
+                </li>
+                <li>
+                    Ideas will be strictly inspected for plagiarism, if positive then all the related ideas will be disqualified.
+                </li>
+                <li>
+                    The participants should strictly follow the idea that is allotted to them by the portal,any changes would lead to disqualification.
+                </li>
+                <li>
+                    Timings for the ideathon will be from 9:00am to 9:00pm forth which any ideas will be not accepted.
+                </li>
+                <li>
+                    All the selected people will recieve an email and will be promoted to the next round.
+                </li>
+                <li>
+                    Your file can be updated multiple times.
+                </li>
+                <li>
+                  IEEE-RAS wishes you the very best!
+                </li>
+            </ul>
+        </div>
+        <style>
+            .instructions{
+                display: none;
+                background-image: linear-gradient(to bottom,yellow,yellowgreen);
+                width: 100%;
+                height: fit-content;
+                font-family:  'Galada', cursive;
+                font-size: x-large;
+            }
+        </style>
+        <script>
+            $(document).ready(function()
+            {
+                $("#head").mousedown(function()
+                {
+                    $(".instructions").slideToggle(3000);
+                })
+            })
+        </script>
+        <div class="jumbotron text-center" style="background-image: linear-gradient(to bottom,maroon,black); color: white;font-family: 'Bebas Neue', cursive;">
+            <h2>Please upload your final file here for judgement!!</h2>
+        </div>
+        <form action="/file" method="POST"  encType="multipart/form-data">
+        <input type="text" name="drive_link" placeholder="paste_your_drive link here" style="font-family: fantasy;text-align: center;margin-left: 30%;width: 40%;" class="responsive">
+        <button class="btn  btn-primary" value="submit" style="margin-left: 47%;margin-top: 10%;">SUBMIT</button>
+        </form>
+        <!-- footer -->
+        <!-- Footer -->
+<footer class="page-footer font-small mdb-color lighten-3 pt-4" style="margin-top: 3%;">
+
+    <!-- Footer Elements -->
+    <div class="container">
+  
+      <!--Grid row-->
+      <div class="row">
+  
+        <!--Grid column-->
+        <div class="col-lg-2 col-md-12 mb-4">
+  
+          <!--Image-->
+          <div class="view overlay z-depth-1-half">
+            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg" class="img-fluid"
+              alt="">
+            <a href="">
+              <div class="mask rgba-white-light"></div>
+            </a>
+          </div>
+  
+        </div>
+        <!--Grid column-->
+  
+        <!--Grid column-->
+        <div class="col-lg-2 col-md-6 mb-4">
+  
+          <!--Image-->
+          <div class="view overlay z-depth-1-half">
+            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(78).jpg" class="img-fluid"
+              alt="">
+            <a href="">
+              <div class="mask rgba-white-light"></div>
+            </a>
+          </div>
+  
+        </div>
+        <!--Grid column-->
+  
+        <!--Grid column-->
+        <div class="col-lg-2 col-md-6 mb-4">
+  
+          <!--Image-->
+          <div class="view overlay z-depth-1-half">
+            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(79).jpg" class="img-fluid"
+              alt="">
+            <a href="">
+              <div class="mask rgba-white-light"></div>
+            </a>
+          </div>
+  
+        </div>
+        <!--Grid column-->
+  
+        <!--Grid column-->
+        <div class="col-lg-2 col-md-12 mb-4">
+  
+          <!--Image-->
+          <div class="view overlay z-depth-1-half">
+            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(81).jpg" class="img-fluid"
+              alt="">
+            <a href="">
+              <div class="mask rgba-white-light"></div>
+            </a>
+          </div>
+  
+        </div>
+        <!--Grid column-->
+  
+        <!--Grid column-->
+        <div class="col-lg-2 col-md-6 mb-4">
+  
+          <!--Image-->
+          <div class="view overlay z-depth-1-half">
+            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(82).jpg" class="img-fluid"
+              alt="">
+            <a href="">
+              <div class="mask rgba-white-light"></div>
+            </a>
+          </div>
+  
+        </div>
+        <!--Grid column-->
+  
+        <!--Grid column-->
+        <div class="col-lg-2 col-md-6 mb-4">
+  
+          <!--Image-->
+          <div class="view overlay z-depth-1-half">
+            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(84).jpg" class="img-fluid"
+              alt="">
+            <a href="">
+              <div class="mask rgba-white-light"></div>
+            </a>
+          </div>
+  
+        </div>
+        <!--Grid column-->
+  
+      </div>
+      <!--Grid row-->
+  
+    </div>
+    <!-- Footer Elements -->
+  
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+      <a href="https://mdbootstrap.com/"> IEEE-RAS&org</a>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+    </body>
+</html>
