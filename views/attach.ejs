@@ -11,6 +11,7 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.dev.js"></script>
     </head>
     <body>
         <div class="jumbotron text-center" style="background-color: yellow;" id="head">
@@ -21,6 +22,40 @@
           <h2>The allotted problem statement for your team name is as given below:</h2>
           <h3><%=ques%></h3>
         </div>
+        <div class="announcements" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;text-align: center;">
+          <div class="jumbotron text-center">
+            <h2>Recent Announcements</h2>
+          </div>
+          <div id="chat-window" style="background-color: bisque; height: 40%;">
+            
+          </div>
+          <input type="text" id="secret" placeholder="Enter the secret key to make announcements,this is only for admins" style="width: 100%; text-align: center;">
+          <input type="text" id="handle" placeholder="Enter your name" style="width: 100%;text-align: center;">
+          <input type="text" id="message" placeholder="Enter the message" style="width: 100%;text-align: center;">
+          <button class="btn  btn-primary" style="margin-top: 2%;margin-bottom: 2%;" id="btn">Send</button>
+        </div>
+        <script>
+          var socket=io.connect();
+          var chat=document.getElementById('chat-window');
+          var handle=document.getElementById('handle');
+          var message=document.getElementById('message');
+          var btn=document.getElementById('btn');
+          var secret=document.getElementById('secret');
+          btn.addEventListener('click',function(){
+           if(secret.value=='21468034')
+           {
+            socket.emit('chat',{
+              message:message.value,
+              handle:handle.value
+            });
+           }
+          })
+          socket.on('chat',function(data){
+            chat.innerHTML+='<p><strong>' +data.handle+ ':</strong>'+data.message+'</p>';
+          })
+
+
+        </script>
         <div class="instructions">
             <ul>
                 <li>
@@ -51,7 +86,7 @@
                     Your file can be updated multiple times.
                 </li>
                 <li>
-                  IEEE-RAS wishes you the very best!
+                  IEEE-RAS wishes you all the best!!
                 </li>
             </ul>
         </div>

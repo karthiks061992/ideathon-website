@@ -8,6 +8,7 @@ app.use(bodyparser.urlencoded({extended:true}));
 app.set('view engine','ejs');
 app.use(express.static("public"));
 var fs=require('fs');
+var socket=require('socket.io');
 var login_mail;
 var login_password;
 const mongo=require('mongodb').MongoClient;
@@ -32,6 +33,7 @@ app.post("/register",(req,res)=>{
         "email":mail_register,
         "password":password_register,
         "name":req.body.name,
+        "contact":req.body.contact,
         "number":randomnumber
     }
     dbo.collection("users").find({email:mail_register}).toArray(function(err,result){
@@ -101,6 +103,7 @@ app.get("/index.html",(req,res)=>{
     res.render('index');
 })
 app.use(fileUpload());
+
 app.post("/file",(req,res)=>{
     //sampleFile.mv('C:\Users\karthik\Desktop');
     var find={
@@ -123,7 +126,7 @@ app.post("/file",(req,res)=>{
     })
    
 });
-app.listen(process.env.PORT||3000,(err)=>{
+ var server=app.listen(process.env.PORT||3000,(err)=>{
     if(err)
     {
         console.log("the server failed to start");
@@ -132,3 +135,12 @@ app.listen(process.env.PORT||3000,(err)=>{
         console.log("the server was successfully started")
     }
 });
+var io=socket(server);
+io.on('connection',(socket)=>{
+    console.log("socket was connected");
+    console.log(socket.id);
+    socket.on('chat',function(data){
+        io.sockets.emit('chat',data);
+    });
+});
+
